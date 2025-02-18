@@ -1,0 +1,9 @@
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:55:6:DATALOG_SD_Init	3
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:82:9:DATALOG_SD_Log_Enable	2
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:111:9:DATALOG_SD_writeBuf	1
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:130:6:DATALOG_SD_Log_Disable	1
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:138:6:DATALOG_SD_DeInit	1
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:148:6:DATALOG_SD_NewLine	1
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:156:9:getSensorsData	7
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:237:6:floatToInt	2
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/datalog_application.c:253:6:MX_X_CUBE_MEMS1_Init	1

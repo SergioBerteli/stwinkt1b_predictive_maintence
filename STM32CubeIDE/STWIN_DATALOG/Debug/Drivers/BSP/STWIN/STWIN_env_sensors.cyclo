@@ -1,0 +1,11 @@
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:443:9:BSP_HTS221_WriteReg	1
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:459:9:BSP_HTS221_ReadReg	1
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:58:9:BSP_ENV_SENSOR_Init	98
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:171:9:BSP_ENV_SENSOR_DeInit	2
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:197:9:BSP_ENV_SENSOR_GetCapabilities	2
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:223:9:BSP_ENV_SENSOR_ReadID	2
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:252:9:BSP_ENV_SENSOR_Enable	3
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:291:9:BSP_ENV_SENSOR_Disable	3
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:331:9:BSP_ENV_SENSOR_GetOutputDataRate	3
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:371:9:BSP_ENV_SENSOR_SetOutputDataRate	3
+/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Drivers/BSP/STWIN/STWIN_env_sensors.c:411:9:BSP_ENV_SENSOR_GetValue	3
