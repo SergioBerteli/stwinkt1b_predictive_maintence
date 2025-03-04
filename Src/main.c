@@ -48,7 +48,7 @@ typedef enum
 /* LoggingInterface = SDCARD_Datalog  --> Save sensors data on SDCard */
 LogInterface_TypeDef LoggingInterface = USB_Datalog;
 
-osThreadId GetDataThreadId, WriteDataThreadId;
+osThreadId GetDataThreadId, WriteDataThreadId, MainThreadId;
 
 osMessageQId dataQueue_id;
 osMessageQDef(dataqueue, DATAQUEUE_SIZE, int);
@@ -76,6 +76,9 @@ UART_HandleTypeDef huart2;
 /* Private function prototypes -----------------------------------------------*/
 static void GetData_Thread(void const *argument);
 static void WriteData_Thread(void const *argument);
+
+static void Main_Thread(void const *argument);
+
 static void MX_USART2_UART_Init(void);
 static void tx_com( uint8_t *tx_buffer, uint16_t len );
 
@@ -132,16 +135,20 @@ int main(void)
   
 
   /* Thread 1 definition */
-  osThreadDef(THREAD_1, GetData_Thread, osPriorityAboveNormal, 0, configMINIMAL_STACK_SIZE*4);
+  //osThreadDef(THREAD_1, GetData_Thread, osPriorityAboveNormal, 0, configMINIMAL_STACK_SIZE*4);
   
   /* Thread 2 definition */
-  osThreadDef(THREAD_2, WriteData_Thread, osPriorityNormal, 0, configMINIMAL_STACK_SIZE*4);
+  //osThreadDef(THREAD_2, WriteData_Thread, osPriorityNormal, 0, configMINIMAL_STACK_SIZE*4);
   
+  // definindo a thread principal
+  osThreadDef(MAIN, Main_Thread, osPriorityNormal, 0, 128);
   /* Start thread 1 */
-  GetDataThreadId = osThreadCreate(osThread(THREAD_1), NULL);
+  //GetDataThreadId = osThreadCreate(osThread(THREAD_1), NULL);
 
   /* Start thread 2 */
-  WriteDataThreadId = osThreadCreate(osThread(THREAD_2), NULL);  
+  //WriteDataThreadId = osThreadCreate(osThread(THREAD_2), NULL);
+
+  MainThreadId = osThreadCreate(osThread(MAIN), NULL);
   
   /* Start scheduler */
   osKernelStart();
@@ -400,6 +407,34 @@ static void WriteData_Thread(void const *argument)
   }
 }
 
+
+void Main_Thread(const void * argument)
+{
+	(void) argument;
+	sensorPool_id = osPoolCreate(osPool(sensorPool));
+	dataQueue_id = osMessageCreate(osMessageQ(dataqueue), NULL);
+
+	readDataSem_id = osSemaphoreCreate(osSemaphore(readDataSem), 1);
+	osSemaphoreWait(readDataSem_id, osWaitForever);
+
+	doubleTapSem_id = osSemaphoreCreate(osSemaphore(doubleTapSem), 1);
+	osSemaphoreWait(doubleTapSem_id, osWaitForever);
+
+	/* Initialize and Enable the available sensors */
+	MX_X_CUBE_MEMS1_Init();
+
+	if(LoggingInterface == USB_Datalog)
+	{
+	dataTimerStart();
+	}
+	char buffera[256];
+	int len;
+	len = sprintf(buffera, "Ola mundo!\r\n");
+	for (;;) {
+		tx_com((uint8_t * )buffera, strlen((char const *)buffera));
+		vTaskDelay(pdMS_TO_TICKS(1000));
+	}
+}
 
 /**
   * @brief System Clock Configuration

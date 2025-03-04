@@ -1,5 +1,5 @@
-/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/usbd_cdc_interface.c:169:15:CDC_DeInit_FS	1
-/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/usbd_cdc_interface.c:183:15:CDC_Control_FS	1
-/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/usbd_cdc_interface.c:263:15:CDC_Receive_FS	1
-/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/usbd_cdc_interface.c:155:15:CDC_Init_FS	1
-/home/facul/Sergio/facul/bolsa/stm/serial_datalog_uart/STSW-STWINKT01_V2.2.0/Projects/Serial_DataLog/Src/usbd_cdc_interface.c:283:9:CDC_Transmit_FS	2
+E:/Users/sergi/STM32CubeIDE/workspace_1.17.0/STSW-STWINKT01_V2.2.0/Projects/stwinkt1b_predictive_maintence/Src/usbd_cdc_interface.c:169:15:CDC_DeInit_FS	1
+E:/Users/sergi/STM32CubeIDE/workspace_1.17.0/STSW-STWINKT01_V2.2.0/Projects/stwinkt1b_predictive_maintence/Src/usbd_cdc_interface.c:183:15:CDC_Control_FS	1
+E:/Users/sergi/STM32CubeIDE/workspace_1.17.0/STSW-STWINKT01_V2.2.0/Projects/stwinkt1b_predictive_maintence/Src/usbd_cdc_interface.c:263:15:CDC_Receive_FS	1
+E:/Users/sergi/STM32CubeIDE/workspace_1.17.0/STSW-STWINKT01_V2.2.0/Projects/stwinkt1b_predictive_maintence/Src/usbd_cdc_interface.c:155:15:CDC_Init_FS	1
+E:/Users/sergi/STM32CubeIDE/workspace_1.17.0/STSW-STWINKT01_V2.2.0/Projects/stwinkt1b_predictive_maintence/Src/usbd_cdc_interface.c:283:9:CDC_Transmit_FS	2
