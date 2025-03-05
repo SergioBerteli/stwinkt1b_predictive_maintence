@@ -31,6 +31,8 @@
 /* Private define ---------------------------------------------------------*/
 #define DATAQUEUE_SIZE     ((uint32_t)100)
 
+#define IIS3DWB_FIFO_WATERMARK_LVL 256
+
 /* Sensor data acquisition period [ms] */
 #define DATA_PERIOD_MS     (20)
 
@@ -141,7 +143,7 @@ int main(void)
   //osThreadDef(THREAD_2, WriteData_Thread, osPriorityNormal, 0, configMINIMAL_STACK_SIZE*4);
   
   // definindo a thread principal
-  osThreadDef(MAIN, Main_Thread, osPriorityNormal, 0, 128);
+  osThreadDef(MAIN, Main_Thread, osPriorityAboveNormal, 0, configMINIMAL_STACK_SIZE*8);
   /* Start thread 1 */
   //GetDataThreadId = osThreadCreate(osThread(THREAD_1), NULL);
 
@@ -429,10 +431,32 @@ void Main_Thread(const void * argument)
 	}
 	char buffera[256];
 	int len;
-	len = sprintf(buffera, "Ola mundo!\r\n");
+	uint8_t id;
+
+	iis3dwb_device_id_get(&(iis3dwb_global_obj->Ctx), (uint8_t *)&id);
+
+	//IIS3DWB_Axes_t dados_acc_teste;
+
+	// variaveis para teste com a fifo
+	uint8_t reg[2];
+	uint16_t iis3dwb_samples_per_it = IIS3DWB_FIFO_WATERMARK_LVL;
+	uint8_t fifo_buffer[IIS3DWB_FIFO_WATERMARK_LVL * 7];
+	volatile uint16_t fifo_level = 0;
+	len = sprintf(buffera, "Hello World!\r\n");
 	for (;;) {
+		/*
+		IIS3DWB_ACC_GetAxes(iis3dwb_global_obj, &dados_acc_teste);
+		len = sprintf(buffera, "X: %ld Y: %ld Z: %ld!\r\n", dados_acc_teste.x, dados_acc_teste.y, dados_acc_teste.z);
 		tx_com((uint8_t * )buffera, strlen((char const *)buffera));
-		vTaskDelay(pdMS_TO_TICKS(1000));
+		*/
+		iis3dwb_read_reg(&(iis3dwb_global_obj->Ctx), IIS3DWB_FIFO_STATUS1, reg, 2);
+
+		fifo_level = ((reg[1] & 0x03) << 8) + reg[0];
+		if ((reg[1]) & 0x80  && (fifo_level >= iis3dwb_samples_per_it)){
+			tx_com((uint8_t * )buffera, strlen((char const *)buffera));
+			IIS3DWB_FIFO_Read(iis3dwb_global_obj, fifo_buffer, IIS3DWB_FIFO_WATERMARK_LVL);
+			tx_com((uint8_t * )buffera, strlen((char const *)buffera));
+		}
 	}
 }
 
